@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
+    <!-- bower_componentsもbuildして別のわかりやすい場所にする -->
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- importするhtmlが不作為に増えるので、圧縮して、一つのhtmlにする予定。  -->
     <link rel="import" href="custom-input-text.html">
     <link rel="import" href="custom-calendar.html">
     <link rel="import" href="custom-header.html">
     <link rel="import" href="custom-footer.html">
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <custom-header></custom-header>
-      <div style="padding:80px 0 0 0">
-        <custom-input-text data-value="hoge" limit="10"></custom-input-text>
-        <custom-calendar></custom-calendar>
-      </div>
+        <custom-header></custom-header>
+        <div style="padding:80px 0 0 0">
+            <custom-input-text data-value="hoge" limit="10"></custom-input-text>
+            <custom-calendar cal-type="2" cal-id="cal1" cal-name="calendar1"></custom-calendar>
+<!-- 2つcustom-calendar置くとエラーになる
+<custom-calendar cal-type="2" cal-id="cal2" cal-name="calendar2"></custom-calendar>
+-->
+        </div>
     </div>
     <custom-footer></custom-footer>
-  </body>
+</body>
+
 </html>

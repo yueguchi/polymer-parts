@@ -1,0 +1,23 @@
+{
+  "name": "polymer",
+  "authors": [
+    "y_eguchi <y.eguchi0526@gmail.com>"
+  ],
+  "description": "polymer test",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer",
+    "iron-input": "PolymerElements/iron-input#^1.0.10",
+    "bootstrap": "^3.3.6",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
+  }
+}

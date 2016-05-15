@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="import" href="custom-input-text.html">
+    <link rel="import" href="custom-calendar.html">
+    <link rel="import" href="custom-header.html">
+    <link rel="import" href="custom-footer.html">
+  </head>
+  <body>
+    <div class="container">
+      <custom-header></custom-header>
+      <div style="padding:80px 0 0 0">
+        <custom-input-text data-value="hoge" limit="10"></custom-input-text>
+        <custom-calendar></custom-calendar>
+      </div>
+    </div>
+    <custom-footer></custom-footer>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-input/iron-input.html">
+<dom-module id="custom-input-text">
+    <template>
+      <div class="row">
+          <div class="eg-my-input-div">
+            <p><b>{{dataValue}}</b></p>
+            <input is="iron-input" bind-value="{{dataValue}}" placeholder="Your name here...">{{inputCount}}/{{limit}}
+          </div>
+      </div>
+    </template>
+    <style>
+        .eg-my-input-div {
+            background-color: blue;
+        }
+
+    </style>
+    <script>
+        HTMLImports.whenReady(function() {
+            Polymer({
+                is: 'custom-input-text',
+                properties: {
+                    dataValue: {
+                        type: String,
+                        value: "hoge",
+                        observer: 'changedValue'
+                    },
+                    limit: {
+                      type: Number,
+                      value: 0
+                    },
+                    inputCount: {
+                      type: Number,
+                      value: 0
+                    }
+                },
+                changedValue: function(newVal, oldVal) {
+                  if (newVal.length > this.limit) {
+                    this.dataValue = oldVal;
+                    return;
+                  } else {
+                    this.inputCount = newVal.length;
+                  }
+                }
+            });
+        });
+    </script>
+</dom-module>

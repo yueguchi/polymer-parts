@@ -29,16 +29,21 @@
                         j,
                         child,
                         grandchild;
+                    // contentの取得 = LocalDOMの子要素
                     var lightChildren = Polymer.dom(this).children;
                     for (i = 0; i < lightChildren.length; i++) {
-                        child = lightChildren[i]; // menues
-                        grandchild = Polymer.dom(child).children; // menu配列
+                        child = lightChildren[i]; // menuesの取得
+                        grandchild = Polymer.dom(child).children; // menu配列の取得
                         for (j = 0; j < grandchild.length; j++) {
-                            var menuItemObj = {
-                                title: grandchild[j].getAttribute("title"),
-                                link: grandchild[j].getAttribute("link")
-                            };
-                            this.push("menuItems", menuItemObj);
+                            var nodeName = grandchild[j].nodeName;// 要素名の取得
+                            console.log(nodeName);
+                            if (nodeName === "MENU") {
+                                var menuItemObj = {
+                                    title: grandchild[j].getAttribute("title"),
+                                    link: grandchild[j].getAttribute("link")
+                                };
+                                this.push("menuItems", menuItemObj);
+                            }
                         }
                     }
                     console.log(this.menuItems);

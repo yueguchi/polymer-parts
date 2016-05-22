@@ -4,20 +4,15 @@
         <!-- navbar -->
         <div class="row">
             <nav class="navbar navbar-default navbar-fixed-top">
-
                 <div class="navbar-header">
-                    <a href="" class="navbar-brand">Home</a>
+                    <a href="" class="navbar-brand">トップ</a>
                 </div>
-
                 <ul class="nav navbar-nav">
                     <template is="dom-repeat" items="{{menuItems}}">
                         <li>
                             <a href="{{item.link}}">{{item.title}}</a>
                         </li>
                     </template>
-                    <li>
-                        <a href="">menu3</a>
-                    </li>
                 </ul>
 
             </nav>
@@ -29,29 +24,24 @@
             Polymer({
                 is: 'custom-header',
                 ready: function() {
-                    // TODO pushだと反映されない。
-                    this.menuItems = [
-                        {title: "aaa", link: "google"}
-                    ];
-                //     var i,
-                //         j,
-                //         child,
-                //         grandchild;
-                //     var lightChildren = Polymer.dom(this).children;
-                //     for (i = 0; i < lightChildren.length; i++) {
-                //         child = lightChildren[i]; // menues
-                //         grandchild = Polymer.dom(child).children; // menu配列
-                //         for (j = 0; j < grandchild.length; j++) {
-                //             console.log(grandchild[j].getAttribute("link"));
-                //             console.log(grandchild[j].getAttribute("title"))
-                //             var menuItemObj = {
-                //                 title: grandchild[j].getAttribute("title"),
-                //                 link: grandchild[j].getAttribute("link")
-                //             };
-                //             this.menuItems.push(menuItemObj);
-                //         }
-                //     }
-                //     console.log(this.menuItems);
+                    this.menuItems = [];
+                    var i,
+                        j,
+                        child,
+                        grandchild;
+                    var lightChildren = Polymer.dom(this).children;
+                    for (i = 0; i < lightChildren.length; i++) {
+                        child = lightChildren[i]; // menues
+                        grandchild = Polymer.dom(child).children; // menu配列
+                        for (j = 0; j < grandchild.length; j++) {
+                            var menuItemObj = {
+                                title: grandchild[j].getAttribute("title"),
+                                link: grandchild[j].getAttribute("link")
+                            };
+                            this.push("menuItems", menuItemObj);
+                        }
+                    }
+                    console.log(this.menuItems);
                 }
             });
         });

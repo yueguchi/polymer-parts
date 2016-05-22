@@ -1,0 +1,23 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<dom-module id="custom-menu-item">
+    <template>
+        <a href="{{customLink}}">{{customTitle}}</a>
+    </template>
+    <script>
+        HTMLImports.whenReady(function() {
+            Polymer({
+                is: 'custom-menu-item',
+                properties: {
+                    customTitle: {
+                        type: String,
+                        value: "メニュー"
+                    },
+                    customLink: {
+                        type: String,
+                        value: "link"
+                    }
+                }
+            });
+        });
+    </script>
+</dom-module>

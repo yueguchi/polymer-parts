@@ -1,37 +1,58 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <dom-module id="custom-header">
     <template>
-      <!-- navbar -->
-          <div class="row">
-              <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- navbar -->
+        <div class="row">
+            <nav class="navbar navbar-default navbar-fixed-top">
 
-                  <div class="navbar-header">
-                      <a href="" class="navbar-brand">Home</a>
-                  </div>
+                <div class="navbar-header">
+                    <a href="" class="navbar-brand">Home</a>
+                </div>
 
-                  <ul class="nav navbar-nav">
-                      <li class="active"><a href="">menu1</a></li>
-                      <li><a href="">menu2</a></li>
-                      <li><a href="">menu3</a></li>
-                      <li><a href="">menu4</a></li>
-                  </ul>
+                <ul class="nav navbar-nav">
+                    <template is="dom-repeat" items="{{menuItems}}">
+                        <li>
+                            <a href="{{item.link}}">{{item.title}}</a>
+                        </li>
+                    </template>
+                    <li>
+                        <a href="">menu3</a>
+                    </li>
+                </ul>
 
-              </nav>
-          </div>
+            </nav>
+        </div>
     </template>
-    <style>
-
-    </style>
+    <style></style>
     <script>
         HTMLImports.whenReady(function() {
             Polymer({
                 is: 'custom-header',
-                properties: {
-                    hoge: {
-                        type: String,
-                        value: "hoge",
-                    }
-                },
+                ready: function() {
+                    // TODO pushだと反映されない。
+                    this.menuItems = [
+                        {title: "aaa", link: "google"}
+                    ];
+                //     var i,
+                //         j,
+                //         child,
+                //         grandchild;
+                //     var lightChildren = Polymer.dom(this).children;
+                //     for (i = 0; i < lightChildren.length; i++) {
+                //         child = lightChildren[i]; // menues
+                //         grandchild = Polymer.dom(child).children; // menu配列
+                //         for (j = 0; j < grandchild.length; j++) {
+                //             console.log(grandchild[j].getAttribute("link"));
+                //             console.log(grandchild[j].getAttribute("title"))
+                //             var menuItemObj = {
+                //                 title: grandchild[j].getAttribute("title"),
+                //                 link: grandchild[j].getAttribute("link")
+                //             };
+                //             this.menuItems.push(menuItemObj);
+                //         }
+                //     }
+                //     console.log(this.menuItems);
+                }
             });
         });
     </script>

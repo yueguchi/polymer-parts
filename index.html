@@ -5,9 +5,8 @@
     <!-- bower_componentsもbuildして別のわかりやすい場所にする -->
     <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- importするhtmlが不作為に増えるので、圧縮して、一つのhtmlにする予定。  -->
-    <link rel="import" href="custom-header.html">
-    <link rel="import" href="custom-footer.html">
+    <!-- vulcanize -o build.html index.htmlで圧縮した -->
+    <link rel="import" href="build.html">
 </head>
 
 <body>
@@ -23,7 +22,7 @@
             </menues>
         </custom-header>
         <div style="padding:80px 0 0 0">
-            body
+            <custom-input-text data-value="aaa" limit="20"></custom-input-text>
         </div>
     </div>
     <custom-footer></custom-footer>
